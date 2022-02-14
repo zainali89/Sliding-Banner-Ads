@@ -1,0 +1,103 @@
+<?
+extract($_REQUEST);
+$json['message'] = "Invalid Action Request...";
+$json['result'] = "error";
+
+
+ //if ($_REQUEST['subaction']=="savereview")
+ {
+
+    debugger::log('**** REVIEW START *****');
+
+    debugger::log('review sent with user agent : '.var_export($_SERVER['HTTP_USER_AGENT'],true));
+    debugger::log('review sent with POST : '.var_export($_POST,true));
+
+    $json['result'] = "error";
+    $json['message'] = "Unable to validate the information submitted.";
+
+    $validHoneyPot = true;
+
+    if(isset($_POST['bd_hpc'])){
+        $validHoneyPot = false;
+        if(empty($_POST['bd_hpc'])){
+            $validHoneyPot = true;
+        }
+    }
+   
+       
+        debugger::log('review ready to be save all validations passed');
+
+        $form = getForm("",$_POST['formname'],$w);
+        $_POST['review_added'] = $w['date'];
+        $_POST['review_updated'] = $w['date'];
+        $_POST['review_token'] = hmac($w[date],$_POST['user_id']);
+        mysql($w['database'],"INSERT INTO
+                `$form[form_table]`
+                (`$form[table_index]`)
+            VALUES
+                ('')");
+        $id = mysql_insert_id();
+        $_SESSION['reviewid'] = $id;
+        $columns = getColumns($form['form_table'],$w);
+        $sql = array();
+
+        foreach($_POST as $key => $value) {
+
+            if (is_array($value)) {
+                $value = json_encode($value,true);
+            }
+            if (in_array($key,$columns) && $key != $form['table_index']) {
+
+
+
+                if ($key != "" && $value != "" && !is_array($key) && !is_array($value)) {
+                    $sql[] = "`".mysql_real_escape_string(trim(stripslashes($key)))."`='".mysql_real_escape_string(trim(stripslashes($value)))."'";
+                }
+
+            } else {
+
+                if ($key != "" && $value != "" && !is_array($key) && !is_array($value)) {
+                    $array[$key] = $value;
+                }
+            }
+
+$array[$key] = $value;
+        }
+        if (is_array($sql)) {
+            $sqlquery = "UPDATE
+                    `$form[form_table]`
+                SET
+                    ".implode(",",$sql)."
+                WHERE
+                    `$form[table_index]` = '$id'";
+            mysql($w[database],$sqlquery);
+
+            if (mysql_error()) {
+                $json['message'] = "Error saving review: ".mysql_error();
+            }
+            if (is_array($array)) {
+                storeMetaData($form['form_table'],$id,$array,$w);
+            }
+
+            //$user = getUser($_POST['user_id'],$w);
+
+            $json['message'] = "Text is Saved Successfully!";
+            $json['result'] = "success";
+            if ($sendingFrom['form_action_type'] != "widget") {
+                $json['redirect_url'] = ltrim($user['filename'],"/")."?message=".urlencode($json['message']);
+            }
+
+        } else {
+            $json['message'] = "Unable to save information. Check input variables";
+        }
+   
+
+    debugger::log('**** REVIEW END *****');
+}
+
+ $json['message'] = "Text is Saved Successfully!";
+ $json['result'] = "success";
+
+echo json_encode($json);
+
+?>
