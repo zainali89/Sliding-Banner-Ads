@@ -1,0 +1,83 @@
+
+Make a SQL table in database with following fields or run the query below
+
+CREATE TABLE sliding_banners_ads(
+  	p_key INT AUTO_INCREMENT PRIMARY KEY,  
+  	banner_type VARCHAR(255),
+  	image_1 VARCHAR(255),
+  	image_2 VARCHAR(255),
+  	image_3 VARCHAR(255),
+  	image_4 VARCHAR(255),
+  	image_5 VARCHAR(255),
+  	image_6 VARCHAR(255),
+  	image_7 VARCHAR(255),
+  	image_8 VARCHAR(255),
+  	image_9 VARCHAR(255),
+  	image_10 VARCHAR(255),
+  	image_11 VARCHAR(255),
+  	image_12 VARCHAR(255),
+  	image_13 VARCHAR(255),
+  	image_14 VARCHAR(255),
+  	image_15 VARCHAR(255),
+  	url_image_1 VARCHAR(255),
+  	url_image_2 VARCHAR(255),
+  	url_image_3 VARCHAR(255),
+  	url_image_4 VARCHAR(255),
+  	url_image_5 VARCHAR(255),
+  	url_image_6 VARCHAR(255),
+  	url_image_7 VARCHAR(255),
+  	url_image_8 VARCHAR(255),
+  	url_image_9 VARCHAR(255),
+  	url_image_10 VARCHAR(255),
+  	url_image_11 VARCHAR(255),
+  	url_image_12 VARCHAR(255),
+  	url_image_13 VARCHAR(255),
+  	url_image_14 VARCHAR(255),
+  	url_image_15 VARCHAR(255)
+);
+
+
+
+Run this query to insert banner ad types in the table 
+
+
+INSERT INTO sliding_banners_ads (banner_type)
+VALUES
+    ("extra_banner_ad__1"),
+    ("extra_banner_ad__2"),    
+    ("extra_banner_ad__3"),    
+    ("extra_banner_ad__4"),    
+    ("extra_banner_ad__5"),    
+    ("sidebar_banner_ad"),    
+    ("below_header_banner_ad");
+
+Then add the code given in the other files in the respective widgets
+OR 
+
+If you want to make a front end form, then do this:
+
+Make a new form with following names and database variables
+1. Banner Type (banner_type) Type: Dropdown
+  1. Below Header Banner Ad (below_header_banner_ad)
+  2. Sidebar Banner Ad (sidebar_banner_ad)
+  3. Extra Banner Ad - 1 (extra_banner_ad__1)
+  4. Extra Banner Ad - 2 (extra_banner_ad__2)
+  5. Extra Banner Ad - 3 (extra_banner_ad__3)
+  6. Extra Banner Ad - 4 (extra_banner_ad__4)
+  7. Extra Banner Ad - 5 (extra_banner_ad__5)
+2. Image_1 (image_1)
+3. URL Image_1 (url_image_1)
+4. Image_2 (image_2)
+5. URL Image_2 (url_image_2)
+6. Image_3 (image_3)
+7. URL Image_3 (url_image_3)
+8. Image_4 (image_4)
+9. URL Image_4 (url_image_4)
+10. Image_5 (image_5)
+11. URL Image_5 (url_image_5)
+
+Then Edit this form's setting and go to "Developer Settings"
+1. In the "Save Action URL" fiels, make this format of URL (/api/widget/json/post/sliding_banner_ad)
+2. What Database Table Should Submissions Post To? (sliding_banners_ads)
+3. Primary Key (p_key)
+
