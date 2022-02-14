@@ -218,7 +218,7 @@ if(($w['show_ads'] == "1" && $wa['custom_250'] == "") || $wa['custom_250'] == "1
     <a class="right carousel-control" href="#myCarousel" data-slide="next">
       <span class="glyphicon glyphicon-chevron-right"></span>
       <span class="sr-only">Next</span>
-    </a>
+    </a>  
   </div>
 </div>
 <br>
