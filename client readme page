@@ -1,0 +1,9 @@
+Step 1: Open MySql Database From Developer Hub.
+
+Step 2: Select "launc24960_directory " in the left sidebar box
+
+Step 3: Write this Query ( SELECT * FROM sliding_banners_ads ORDER BY `p_key` ASC ; ) in SQL Box which says: Run SQL query/queries on database launc24960_directory:
+
+Step 4: Click on "GO"
+
+Step 5: Then write the image URL and Hyper link in the respective table field.
