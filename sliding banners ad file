@@ -43,12 +43,12 @@ Run this query to insert banner ad types in the table
 
 INSERT INTO sliding_banners_ads (banner_type)
 VALUES
-    ("extra_banner_ad__1"),
-    ("extra_banner_ad__2"),    
-    ("extra_banner_ad__3"),    
-    ("extra_banner_ad__4"),    
-    ("extra_banner_ad__5"),    
-    ("sidebar_banner_ad"),    
+    ("sidebar_banner_ad_2"),
+    ("sidebar_banner_ad_3"),    
+    ("sidebar_banner_ad_4"),    
+    ("sidebar_banner_ad_5"),    
+    ("sidebar_banner_ad_6"),    
+    ("sidebar_banner_ad_1"),    
     ("below_header_banner_ad");
 
 Then add the code given in the other files in the respective widgets
