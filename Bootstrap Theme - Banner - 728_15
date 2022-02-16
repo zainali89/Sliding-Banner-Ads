@@ -6,7 +6,7 @@ IMPORTANT: This widget contains real Adsense code as a sample to show how this w
 <?php 
 
 //Query to get the sliding banner add data
-$myquery = mysql(brilliantDirectories::getDatabaseConfiguration('database'), "SELECT *  FROM `sliding_banners_ads` WHERE banner_type='extra_banner_ad__1' ");
+$myquery = mysql(brilliantDirectories::getDatabaseConfiguration('database'), "SELECT *  FROM `sliding_banners_ads` WHERE banner_type='sidebar_banner_ad_2' ");
 
 $myresult = mysql_fetch_array($myquery);
 
