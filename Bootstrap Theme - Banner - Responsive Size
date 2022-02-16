@@ -5,7 +5,7 @@ IMPORTANT: This widget contains real Adsense code as a sample to show how this w
 -->
 <?php 
 //sidebar_banner_ad
-$myquery = mysql(brilliantDirectories::getDatabaseConfiguration('database'), "SELECT *  FROM `sliding_banners_ads` WHERE banner_type='sidebar_banner_ad' ");
+$myquery = mysql(brilliantDirectories::getDatabaseConfiguration('database'), "SELECT *  FROM `sliding_banners_ads` WHERE banner_type='sidebar_banner_ad_1' ");
 
 $myresult = mysql_fetch_array($myquery);
 if(empty($myresult))
