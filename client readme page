@@ -1,6 +1,6 @@
 Step 1: Open MySql Database From Developer Hub.
 
-Step 2: Select "launc24960_directory " in the left sidebar box
+Step 2: Select "launc'Website_ID'_directory " in the left sidebar box
 
 Step 3: Write this Query ( SELECT * FROM sliding_banners_ads ORDER BY `p_key` ASC ; ) in SQL Box which says: Run SQL query/queries on database launc24960_directory:
 
